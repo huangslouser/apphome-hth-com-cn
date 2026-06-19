@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://huangslouser.github.io/apphome-hth-com-cn/sitemap.xml

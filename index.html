@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>华体会 · 站点介绍</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #f7f9fc;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: #1e293b;
+            line-height: 1.7;
+            padding: 2.4rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 660px;
+            width: 100%;
+        }
+
+        /* hero 开场短句 */
+        .hero {
+            margin-bottom: 3rem;
+            border-bottom: 1px solid #dce3ec;
+            padding-bottom: 2rem;
+        }
+
+        .hero .tagline {
+            font-size: 0.9rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: #5b6f8a;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin: 0.2rem 0 0.8rem 0;
+            color: #0f172a;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: #334155;
+            max-width: 90%;
+        }
+
+        /* 承接段落 */
+        .intro-text {
+            margin-bottom: 2.4rem;
+            font-size: 1.05rem;
+        }
+
+        .intro-text p {
+            margin-bottom: 1.2rem;
+        }
+
+        .intro-text a {
+            color: #1e4b8a;
+            text-decoration: none;
+            border-bottom: 1px solid #b7c9e0;
+            transition: border-bottom 0.2s, color 0.2s;
+        }
+
+        .intro-text a:hover {
+            border-bottom-color: #1e4b8a;
+            color: #0f2b4f;
+        }
+
+        /* 特点列表 —— 简约卡片 */
+        .feature-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin: 2.8rem 0 3rem 0;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 1.2rem 1.6rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02), 0 2px 6px rgba(0, 0, 0, 0.03);
+            transition: box-shadow 0.15s ease;
+            border-left: 4px solid transparent;
+        }
+
+        .feature-card:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04), 0 4px 18px rgba(0, 0, 0, 0.02);
+            border-left-color: #1e4b8a;
+        }
+
+        .feature-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.25rem;
+            color: #0b1d31;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: #3d4e66;
+            margin: 0;
+        }
+
+        /* 温和收尾 */
+        .closing {
+            margin-top: 2.6rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid #dce3ec;
+            font-size: 1rem;
+            color: #2c3e56;
+        }
+
+        .closing p {
+            max-width: 95%;
+        }
+
+        .closing .reference {
+            margin-top: 1.2rem;
+            font-size: 0.9rem;
+            color: #5b6f8a;
+        }
+
+        .closing a {
+            color: #1e4b8a;
+            text-decoration: none;
+            border-bottom: 1px solid #b7c9e0;
+            transition: border-bottom 0.2s;
+        }
+
+        .closing a:hover {
+            border-bottom-color: #1e4b8a;
+        }
+
+        /* 响应式微调 */
+        @media (max-width: 520px) {
+            body {
+                padding: 1.8rem 1rem;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .hero p {
+                font-size: 1rem;
+                max-width: 100%;
+            }
+            .feature-card {
+                padding: 1rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <div class="hero">
+        <div class="tagline">站点简报</div>
+        <h1>华体会 · 一处信息聚合</h1>
+        <p>简洁、明晰，从站点本身出发做一次务实的介绍。</p>
+    </div>
+
+    <div class="intro-text">
+        <p>
+            <a href="https://apphome-hth.com.cn">华体会</a> 是一个以内容聚合与功能引导为核心的入口型站点。
+            从信息组织方式来看，它更倾向为使用者提供清晰的结构与快捷的路径，而非堆叠复杂功能。
+        </p>
+        <p>
+            站在站点介绍的角度，我们更愿意强调它作为“起始页”的定位：不喧宾夺主，不刻意包装，
+            仅将最核心的索引、说明与资源按合理层级陈列。对初次接触的用户而言，这种克制反而降低了认知负担。
+        </p>
+    </div>
+
+    <div class="feature-grid">
+        <div class="feature-card">
+            <h3>结构轻简</h3>
+            <p>层级明确，模块间留有充足呼吸感；无论是导航还是正文，都避免过载信息。</p>
+        </div>
+        <div class="feature-card">
+            <h3>内容可信</h3>
+            <p>所有指向与说明均基于可查实的站点自身信息，不虚构、不渲染，保持资料层面的准确性。</p>
+        </div>
+        <div class="feature-card">
+            <h3>响应呈现</h3>
+            <p>布局适配主流屏幕尺寸，阅读与浏览节奏不受设备干扰，细节体验优先于视觉效果。</p>
+        </div>
+        <div class="feature-card">
+            <h3>迭代克制</h3>
+            <p>每一处修改都围绕“更便于理解”展开，而非追求版本号或装饰上的频繁变化。</p>
+        </div>
+    </div>
+
+    <div class="closing">
+        <p>
+            以上是围绕 <a href="https://apphome-hth.com.cn">华体会</a> 所做的简要说明。
+            没有冗长的承诺，也没有模糊的暗示——站点所提供的就是你看到的：一个干净、直接的信息入口。
+        </p>
+        <p>
+            若你希望进一步了解具体模块或用途，直接浏览便是最稳妥的方式。
+            保持适度的观察，往往比任何第三方转述都更接近真实。
+        </p>
+        <div class="reference">
+            — 于页面本身出发，不增不减。
+        </div>
+    </div>
+</div>
+</body>
+</html>
