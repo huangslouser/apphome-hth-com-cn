@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>极速赛车 · 简明指南与访问提醒</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f5f1eb;
+            color: #1e1e1e;
+            line-height: 1.6;
+        }
+
+        /* 深色头图 — 故事式开场 */
+        .hero {
+            background: linear-gradient(145deg, #0b0f17 0%, #1f2635 100%);
+            color: #e6e9f0;
+            padding: 3.5rem 1.5rem 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            left: -10%;
+            width: 60%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 40%, rgba(120, 140, 220, 0.08), transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 2.25rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            word-break: keep-all;
+        }
+
+        .hero h1 span {
+            display: inline-block;
+            background: #d4b06a;
+            color: #0b0f17;
+            padding: 0 12px;
+            font-weight: 600;
+            border-radius: 4px;
+            margin: 0 4px;
+        }
+
+        .hero .lead {
+            margin-top: 1rem;
+            font-size: 1.1rem;
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #b7c0d0;
+        }
+
+        /* 正文浅色区 — 卡片与段落 */
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 3rem;
+        }
+
+        .section-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 1.8rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.03);
+            transition: box-shadow 0.25s ease;
+        }
+
+        .section-card:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+        }
+
+        .section-card h2 {
+            font-size: 1.45rem;
+            font-weight: 500;
+            border-left: 5px solid #d4b06a;
+            padding-left: 1rem;
+            margin-bottom: 1.2rem;
+            color: #1e2635;
+        }
+
+        .section-card p {
+            margin-bottom: 1.1rem;
+            font-size: 1rem;
+            color: #2d2f36;
+        }
+
+        .section-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 特点列表 — 差异化卡片内嵌 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin: 1.5rem 0 0.5rem;
+        }
+
+        .feature-item {
+            background: #f8f6f2;
+            border-radius: 18px;
+            padding: 1.2rem 1.2rem 1rem;
+            border: 1px solid #ede9e2;
+        }
+
+        .feature-item h3 {
+            font-size: 1rem;
+            font-weight: 550;
+            margin-bottom: 0.4rem;
+            color: #1f2635;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .feature-item h3::before {
+            content: '▹';
+            color: #d4b06a;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .feature-item p {
+            font-size: 0.9rem;
+            color: #3b3e48;
+            margin-bottom: 0;
+            line-height: 1.5;
+        }
+
+        /* 场景提示 — 温和的提醒卡片 */
+        .notice-box {
+            background: #f2efe8;
+            border-radius: 20px;
+            padding: 1.6rem 1.8rem;
+            margin: 2.2rem 0 1.8rem;
+            border-left: 6px solid #d4b06a;
+        }
+
+        .notice-box strong {
+            color: #1f2635;
+            display: block;
+            font-weight: 550;
+            margin-bottom: 0.5rem;
+        }
+
+        .notice-box p {
+            margin-bottom: 0.3rem;
+            font-size: 0.95rem;
+        }
+
+        /* FAQ 摘要 — 极简 */
+        .faq-mini {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 1.8rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+        }
+
+        .faq-mini h2 {
+            font-size: 1.45rem;
+            font-weight: 500;
+            border-left: 5px solid #d4b06a;
+            padding-left: 1rem;
+            margin-bottom: 1.2rem;
+            color: #1e2635;
+        }
+
+        .faq-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eae5dd;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-item .q {
+            font-weight: 550;
+            color: #1f2635;
+            margin-bottom: 0.25rem;
+        }
+
+        .faq-item .a {
+            font-size: 0.92rem;
+            color: #3f4350;
+        }
+
+        /* 链接强调色 */
+        a {
+            color: #a9773b;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            transition: color 0.2s, text-decoration-color 0.2s;
+        }
+
+        a:hover {
+            color: #7f5a2c;
+            text-decoration-color: #7f5a2c;
+        }
+
+        /* 温和结尾 */
+        .gentle-footer {
+            text-align: center;
+            padding: 2.5rem 1rem 1.5rem;
+            border-top: 1px solid #e2dbd2;
+            color: #5a5e6b;
+            font-size: 0.9rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .gentle-footer span {
+            display: inline-block;
+            background: #eae6de;
+            padding: 0.15rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            color: #3f4350;
+            margin-top: 0.6rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+
+            .hero .lead {
+                font-size: 1rem;
+            }
+
+            .content {
+                padding: 1.8rem 1rem 2.5rem;
+            }
+
+            .section-card {
+                padding: 1.5rem 1.2rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .notice-box {
+                padding: 1.2rem 1.2rem;
+            }
+
+            .faq-mini {
+                padding: 1.5rem 1.2rem;
+            }
+        }
+
+        @media (min-width: 601px) and (max-width: 900px) {
+            .feature-grid {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 深色头图 · 开场短句 -->
+    <header class="hero">
+        <h1>
+            <span>极速</span>赛车 · 简明指南
+        </h1>
+        <p class="lead">
+            从零开始认识平台的结构与边界，让每一次浏览都清晰从容。
+        </p>
+    </header>
+
+    <!-- 正文区：浅色背景，卡片式承接 -->
+    <main class="content">
+
+        <!-- 承接段落：是什么 + 为什么值得了解 -->
+        <div class="section-card">
+            <h2>一个以速度为核心的赛车信息空间</h2>
+            <p>
+                <strong><a href="https://beta-jisusaiche.com">极速赛车</a></strong> 并非普通的赛车资讯站，它围绕「快速切入、动态跟踪」的理念，将赛事数据、车辆档案与实用工具整合在同一界面。无论你是刚接触赛车文化的新参与者，还是希望提高信息获取效率的爱好者，这里都提供了一条结构清晰的路径。
+            </p>
+            <p>
+                与许多赛车平台不同的是，它更强调轻量起步 —— 不需要注册即可浏览大部分内容，且页面导航经过精简。你只需记住一个核心入口，其余功能会在使用中自然展开。
+            </p>
+        </div>
+
+        <!-- 特点列表卡片（差异化：内嵌网格） -->
+        <div class="section-card">
+            <h2>平台特点 · 从使用中感知</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h3>模块化信息分区</h3>
+                    <p>赛事、车辆、数据表各自独立，不相互干扰。你可以像翻阅手册一样按需查阅，避免信息过载。</p>
+                </div>
+                <div class="feature-item">
+                    <h3>轻量访问门槛</h3>
+                    <p>核心页面无需登录即可加载，减少等待和注册流程带来的摩擦，适合快速查证或日常浏览。</p>
+                </div>
+                <div class="feature-item">
+                    <h3>内容更新节奏</h3>
+                    <p>频道内的赛事回顾与车辆参数会随赛季推进而刷新，保持与实际情况的基本同步。</p>
+                </div>
+                <div class="feature-item">
+                    <h3>视觉引导明确</h3>
+                    <p>界面采用高对比区块与适度留白，重要操作（如筛选、搜索）被放在显眼位置，降低误触可能。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 场景 + 提示 —— 自然提醒 -->
+        <div class="notice-box">
+            <strong>🔍 访问提醒 · 实用视角</strong>
+            <p>• 第一次进入 <a href="https://beta-jisusaiche.com">极速赛车</a> 时，建议先浏览“快速入门”模块，它位于页面左上角菜单内，能帮你建立整体认知。</p>
+            <p>• 如果使用移动设备访问，部分数据表格会以横向滚动方式呈现，左右滑动即可查看全部字段。</p>
+            <p>• 平台内的链接均指向自身内容，暂未接入外部广告弹窗，浏览环境相对干净。</p>
+        </div>
+
+        <!-- FAQ 摘要 —— 回答两个常见问题 -->
+        <div class="faq-mini">
+            <h2>常见疑惑 · 简短说明</h2>
+            <div class="faq-item">
+                <div class="q">问：是否需要付费或订阅才能使用主要功能？</div>
+                <div class="a">答：目前绝大部分功能（赛事浏览、车辆信息、数据查阅）均为免费开放，没有隐藏订阅层。部分高级筛选或历史存档可能需要简单注册，但基础体验不受影响。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">问：平台上的数据与官方赛事信息一致吗？</div>
+                <div class="a">答：内容团队会参考公开赛事记录与厂商数据进行整理，但建议以赛事官方公报为最终依据。平台更侧重于提供结构化阅读体验，而非绝对权威的数据源。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">问：页面加载较慢时该怎么办？</div>
+                <div class="a">答：可以先检查网络连接，或尝试刷新页面。如果频繁出现响应延迟，可以稍后再试——平台偶尔会进行后台维护，通常不影响长期使用。</div>
+            </div>
+        </div>
+
+        <!-- 温和结尾 —— 不突兀 -->
+        <div class="section-card" style="background: #fcfaf7; border: 1px solid #ede9e2;">
+            <h2 style="border-left-color: #b7a17a;">收束 · 一种平和的期待</h2>
+            <p>
+                无论你是因为对赛车本身感兴趣，还是偶然间被简洁的界面吸引，<strong><a href="https://beta-jisusaiche.com">极速赛车</a></strong> 都愿意成为一个安静的信息落脚点。这里没有夸张的标语，也没有催促你「立即行动」的按钮，只有按部就班呈现的内容，以及一种可供翻阅的秩序感。
+            </p>
+            <p style="margin-top: 0.8rem; color: #5a5e6b;">
+                赛车世界的节奏很快，但了解它的过程，可以慢慢来。
+            </p>
+        </div>
+
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="gentle-footer">
+        <p>基于公开信息整理 · 仅供参考与学习</p>
+        <span>版本 2025 · 界面方向迭代中</span>
+    </footer>
+
+</body>
+</html>
