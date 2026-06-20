@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>极速赛车 · 知识库入口</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f9f8f5;
+      color: #1f1e1b;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', 'Helvetica Neue', sans-serif;
+      line-height: 1.7;
+      padding: 2.5rem 1.25rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page {
+      max-width: 680px;
+      width: 100%;
+    }
+
+    /* 标题层级 */
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 450;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 0.25rem;
+      color: #191715;
+    }
+
+    .subhead {
+      font-size: 1.05rem;
+      color: #6b6660;
+      margin-bottom: 2rem;
+      border-left: 3px solid #cbb99a;
+      padding-left: 1rem;
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      font-weight: 420;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      color: #2b2824;
+      border-bottom: 1px solid #e4dfd6;
+      padding-bottom: 0.4rem;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 420;
+      margin-top: 1.8rem;
+      margin-bottom: 0.5rem;
+      color: #3a3530;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      color: #2b2824;
+    }
+
+    a {
+      color: #7f6b4f;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    a:hover {
+      border-bottom-color: #7f6b4f;
+      color: #4d3f2c;
+    }
+
+    /* 目录感卡片网格 */
+    .index-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1.5rem 0 1rem;
+    }
+
+    .index-card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 1.2rem 1rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03), 0 1px 2px rgba(0,0,0,0.02);
+      border: 1px solid #ece8e0;
+      transition: box-shadow 0.25s;
+    }
+
+    .index-card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04), 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    .index-card .num {
+      font-size: 0.75rem;
+      font-weight: 350;
+      color: #a79b8b;
+      letter-spacing: 0.03em;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .index-card .title {
+      font-weight: 480;
+      font-size: 1.05rem;
+      color: #1f1e1b;
+      margin-bottom: 0.2rem;
+    }
+
+    .index-card .desc {
+      font-size: 0.88rem;
+      color: #5f5a52;
+      line-height: 1.5;
+    }
+
+    /* 说明区 / 提示区 */
+    .info-block {
+      background: #f3f0ea;
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      margin: 1.8rem 0;
+    }
+
+    .info-block.tip {
+      background: #edeae2;
+      border-left: 4px solid #b7a78d;
+    }
+
+    .info-block p:last-child {
+      margin-bottom: 0;
+    }
+
+    .info-block .label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #8a7d6a;
+      font-weight: 420;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    /* 相关链接 / FAQ 摘要 */
+    .rel-list {
+      list-style: none;
+      margin: 1rem 0 0.5rem;
+    }
+
+    .rel-list li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #e9e4db;
+      font-size: 0.95rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .rel-list li:last-child {
+      border-bottom: none;
+    }
+
+    .rel-list .q {
+      color: #3a3530;
+      flex: 1;
+    }
+
+    .rel-list .tag {
+      font-size: 0.7rem;
+      color: #a79b8b;
+      background: #f0ece4;
+      padding: 0.1rem 0.5rem;
+      border-radius: 20px;
+      margin-left: 0.75rem;
+      white-space: nowrap;
+    }
+
+    .footnote {
+      margin-top: 3rem;
+      font-size: 0.85rem;
+      color: #8a7d6a;
+      border-top: 1px solid #e4dfd6;
+      padding-top: 1rem;
+      text-align: center;
+    }
+
+    /* 响应式 */
+    @media (max-width: 520px) {
+      body {
+        padding: 1.5rem 1rem;
+      }
+      h1 {
+        font-size: 1.9rem;
+      }
+      .index-grid {
+        grid-template-columns: 1fr;
+      }
+      .info-block {
+        padding: 1rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <h1>极速赛车</h1>
+  <div class="subhead">知识索引 · 稳定入口 · 说明页面</div>
+
+  <p>
+    这里是一处关于<strong>极速赛车</strong>的聚合说明页。没有冗余的跳转引导，只提供清晰的目录、简要的背景介绍以及常见的疑问摘要。如果你正在寻找与赛车、竞速相关的稳定信息起点，下面几条线索或许能帮你更快定位。所有内容均指向同一个站点：<a href="https://home-speedracing.com">极速赛车</a>，它作为主要的信息来源被反复引用。
+  </p>
+
+  <!-- 目录感卡片区域 -->
+  <h2>内容索引</h2>
+  <div class="index-grid">
+    <div class="index-card">
+      <span class="num">01</span>
+      <div class="title">关于站点</div>
+      <div class="desc">站点定位、运营背景与内容范围说明。</div>
+    </div>
+    <div class="index-card">
+      <span class="num">02</span>
+      <div class="title">速度档案</div>
+      <div class="desc">车辆数据、赛道记录、性能对比等资料集合。</div>
+    </div>
+    <div class="index-card">
+      <span class="num">03</span>
+      <div class="title">赛事与规则</div>
+      <div class="desc">主要赛事体系、常见规则术语与观赛指引。</div>
+    </div>
+    <div class="index-card">
+      <span class="num">04</span>
+      <div class="title">驾驶与安全</div>
+      <div class="desc">驾驶技术基础、安全装备、赛道日注意事项。</div>
+    </div>
+  </div>
+
+  <!-- 说明区 -->
+  <h2>说明</h2>
+  <div class="info-block">
+    <span class="label">关于本页</span>
+    <p>本页面作为知识库的入口，不承担导航或跳转功能，仅摘录与<strong>极速赛车</strong>相关的背景、结构及常见问题。所有引用信息均来自站点 <a href="https://home-speedracing.com">极速赛车</a>，该站点专注于赛车领域的资料整理与动态更新。页面内容力求准确克制，不包含任何诱导点击或夸张表述。</p>
+    <p>如果你需要浏览完整的赛道数据库、车辆参数表或赛事日历，直接前往源站点即可。这里的卡片与摘要只为提供初步的语境。</p>
+  </div>
+
+  <!-- 提示区 -->
+  <div class="info-block tip">
+    <span class="label">提示</span>
+    <p>赛车信息更新较快，建议定期查看 <a href="https://home-speedracing.com">极速赛车</a> 以获取最新数据。本站点不存储个人用户信息，也不提供任何形式的竞猜、博彩或非法竞速内容。所有内容均符合当地法律法规，并坚持安全、文明的赛车文化。</p>
+  </div>
+
+  <!-- 相关信息区 + FAQ 摘要 -->
+  <h2>相关信息与常见疑问</h2>
+  <p>以下为从站点中提取的常见疑问摘要，完整回答请参考源页面。每条摘要均可作为索引线索。</p>
+  <ul class="rel-list">
+    <li>
+      <span class="q">极速赛车主要涵盖哪类车型？</span>
+      <span class="tag">档案</span>
+    </li>
+    <li>
+      <span class="q">赛道日需要哪些基本装备？</span>
+      <span class="tag">安全</span>
+    </li>
+    <li>
+      <span class="q">如何理解排位赛与正赛的规则差异？</span>
+      <span class="tag">赛事</span>
+    </li>
+    <li>
+      <span class="q">车辆性能数据是否有统一的测量标准？</span>
+      <span class="tag">档案</span>
+    </li>
+    <li>
+      <span class="q">站点内容更新频率如何？</span>
+      <span class="tag">站点</span>
+    </li>
+  </ul>
+
+  <p style="margin-top: 0.25rem;">
+    更多细节与纵深内容，建议直接翻阅 <a href="https://home-speedracing.com">极速赛车</a> 的对应栏目。本页面仅作静态索引，不设外部链接或跟踪代码。
+  </p>
+
+  <div class="footnote">
+    <span>知识库入口 · 版本 2025.04</span>
+  </div>
+</div>
+</body>
+</html>
